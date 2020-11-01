@@ -141,7 +141,7 @@
                 case "fire":
                   overlay.style.visibility = "visible";
                   overlay.style.opacity= '1';
-                  window.setTimeout(function(){window.open("/fire.html", "_self")}, 2000);
+                  window.setTimeout(function(){window.open("https://phnoirfire.herokuapp.com/fire.html", "_self")}, 2000);
               
                   break;
               }
@@ -282,6 +282,16 @@
             <audio
               id="audio2"
               src="https://cdn.glitch.com/f44e7d0f-6299-4434-a136-b24515e92365%2FBinaural%20Nature%20Sound%20001.mp3?v=1604157792227"
+            ></audio>
+            
+            <audio
+              id="fireaudio"
+              src="https://cdn.glitch.com/f44e7d0f-6299-4434-a136-b24515e92365%2Ffire%20portal.mp3?v=1604240453777"
+            ></audio>
+            
+            <audio
+              id="woodaudio"
+              src="https://cdn.glitch.com/f44e7d0f-6299-4434-a136-b24515e92365%2Fwood%20portal.mp3?v=1604240454571"
             ></audio>
 
             <!-- Templates -->
@@ -445,6 +455,12 @@
           position="-20 1.5 65"
           rotation="0 90 0"
           sphere-collider="objects: #playerCollider; state: fire; radius: 0.5"
+          sound="src: #fireaudio; 
+                    autoplay: true;
+                    volume: 2;
+                    loop: true;
+                    refDistance: 3;
+                    rolloffFactor: 5"
           ></a-sphere>
           <a-entity
             light="type: point;

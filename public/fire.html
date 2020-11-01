@@ -135,7 +135,7 @@
                 case "wood":
                   overlay.style.visibility = "visible";
                   overlay.style.opacity= '1';
-                  window.setTimeout(function(){window.open("/woods.html", "_self")}, 2000);
+                  window.setTimeout(function(){window.open("https://phnoir.herokuapp.com/woods.html", "_self")}, 2000);
                   
                   break;
                 case "fire":
@@ -282,6 +282,16 @@
             <audio
               id="audio2"
               src="https://cdn.glitch.com/f44e7d0f-6299-4434-a136-b24515e92365%2FWood%20Fire%20-%20No%20Copyright%20Sound%20Effects%20-%20Audio%20Library%20(1).mp3?v=1604157775500"
+            ></audio>
+            
+            <audio
+              id="fireaudio"
+              src="https://cdn.glitch.com/f44e7d0f-6299-4434-a136-b24515e92365%2Ffire%20portal.mp3?v=1604240453777"
+            ></audio>
+            
+            <audio
+              id="woodaudio"
+              src="https://cdn.glitch.com/f44e7d0f-6299-4434-a136-b24515e92365%2Fwood%20portal.mp3?v=1604240454571"
             ></audio>
 
             <!-- Templates -->
@@ -446,6 +456,12 @@
           scale="0.1 4 4"
           position="29 22 21" rotation="20 25 -20" 
           sphere-collider="objects: #playerCollider; state: wood; radius: 0.5"
+                  sound="src: #woodaudio; 
+                    autoplay: true;
+                    volume: 3;
+                    loop: true;
+                    refDistance: 3;
+                    rolloffFactor: 5"
           ></a-sphere>
           <!--<a-entity
             light="type: point;

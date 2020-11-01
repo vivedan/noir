@@ -131,7 +131,7 @@
                 case "fire":
                   overlay.style.visibility = "visible";
                   overlay.style.opacity= '1';
-                  window.setTimeout(function(){window.open("/fire.html", "_self")}, 2000);
+                  window.setTimeout(function(){window.open("https://phnoirfire.herokuapp.com/fire.html", "_self")}, 2000);
               
                   break;
               }
@@ -180,7 +180,20 @@
             ></a-asset-item>
             
             
+            <audio
+              id="ambient"
+              src="https://cdn.glitch.com/f44e7d0f-6299-4434-a136-b24515e92365%2F477436__erokia__ambient-wave-43-dark-ambiance.mp3?v=1604240461611"
+            ></audio>
             
+            <audio
+              id="fireaudio"
+              src="https://cdn.glitch.com/f44e7d0f-6299-4434-a136-b24515e92365%2Ffire%20portal.mp3?v=1604240453777"
+            ></audio>
+            
+            <audio
+              id="woodaudio"
+              src="https://cdn.glitch.com/f44e7d0f-6299-4434-a136-b24515e92365%2Fwood%20portal.mp3?v=1604240454571"
+            ></audio>
             
 
             <!-- Templates -->
@@ -268,26 +281,7 @@
 
             <!-- Audio -->
 
-            <audio
-              id="music1"
-              src="https://cdn.glitch.com/3caaeeee-606a-4efa-b25c-25fd7df67760%2Ftribal%20tessellation%20-%20Santra_redux4.mp3?v=1594466148569"
-            ></audio>
-            <audio
-              id="music2"
-              src="https://cdn.glitch.com/3caaeeee-606a-4efa-b25c-25fd7df67760%2FApril-Xanadu_redux2.mp3?v=1594466006077"
-            ></audio>
-            <audio
-              id="music3"
-              src="https://cdn.glitch.com/3caaeeee-606a-4efa-b25c-25fd7df67760%2FMia14mins-21mb_redux3.mp3?v=1594465505516"
-            ></audio>
-            <audio
-              id="center1"
-              src="https://cdn.glitch.com/3caaeeee-606a-4efa-b25c-25fd7df67760%2FCentral%20voice%20over%20music%20-%20Sans.mp3?v=1594394323999"
-            ></audio>
-            <audio
-              id="musicentrance"
-              src="https://cdn.glitch.com/83db13bb-2e50-4db4-ae15-d23dcb891201%2F208516__frankum__entrancemod.mp3?v=1592321706740"
-            ></audio>
+            
           </a-assets>
 
           <a-entity
@@ -356,6 +350,19 @@
 
           <!--<a-portal pos="0 1.5 0" src="#portal1" state="col2" objects="#playerCollider"></a-portal>-->
           
+          <a-sphere
+              radius="10"
+              
+              visible="false"
+              sound="src: #ambient; 
+                    autoplay: true;
+                    volume: 0.15;
+                    loop: true;
+                    positional: false;"
+            >
+            </a-sphere>
+          
+          
           <!--PORTALWOOD-->
           
           <a-entity position="10 1.5 0" animation="property: rotation; to: 360 0 0; loop: true; dur: 30000">
@@ -372,6 +379,12 @@
           scale="0.1 3 3"
           position="10 1.5 0"
           sphere-collider="objects: #playerCollider; state: wood; radius: 0.5"
+          sound="src: #woodaudio; 
+                    autoplay: true;
+                    volume: 2;
+                    loop: true;
+                    refDistance: 3;
+                    rolloffFactor: 5"
           ></a-sphere>
           <a-entity
             light="type: point;
@@ -400,6 +413,12 @@
           position="0 1.5 10"
           rotation="0 90 0"
           sphere-collider="objects: #playerCollider; state: fire; radius: 0.5"
+          sound="src: #fireaudio; 
+                    autoplay: true;
+                    volume: 2;
+                    loop: true;
+                    refDistance: 3;
+                    rolloffFactor: 5"
           ></a-sphere>
           <a-entity
             light="type: point;
